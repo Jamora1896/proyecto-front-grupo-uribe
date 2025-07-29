@@ -97,9 +97,34 @@ function registrarUsuario(){
   console.log(formulario);
   //instancia, crear un objeto apartir de una clase
   let data = new FormData(formulario)
-  let objeto = Object.fromEntries(data)  //de la data que estamos ingresando se crea un objeto 
-  usuarios.push(objeto);
-  console.log(usuarios);
+  let objeto = Object.fromEntries(data); //de la data que estamos ingresando se crea un objeto 
+  objeto.hobbies = data.getAll("hobbies") // se define cuando es un arreglo y se debe capturar varios datos 
+  let camposVacios = Object.values(objeto).some((valor)=> {
+    return (
+      valor === null || valor === undefined || valor.toString().trim() === ""
+    );
+  }); // validacion de que no se registren campos vacios 
+  if(camposVacios){
+    let mensajeError = "No se permiten campos vacios, revise nuevamente...."
+    let error = document.getElementById("error");
+    error.textContent = mensajeError;
+    error.classList.add("mensajeError");
+    return;
+  }
+
+let error = document.getElementById("error");
+error.classList.remove("mensajeError");
+error.textContent = "";
+
+
+  
+ usuarios.push(objeto);
+ // simular almacenamiento con el local storage directamente en el navegador, siempre almacenara en el formato string
+// getItem() se usa el parse, setItem() se usa el stringify
+// JSON, debe estar convertido en string, expresado o manipulado por una cadena de texto 
+//.stringify () convierte un objeto, numero,o arreglo a string
+//.parse() convierte un string a un tipo de dato  objeto arreglo
+localStorage.setItem("usuarios", JSON.stringify(usuarios)); // recibe nombre de la tabla  y el arreglo que quiero enviar 
 
 
 }
