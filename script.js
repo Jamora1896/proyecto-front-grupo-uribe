@@ -35,16 +35,36 @@ inputs.forEach((input)=> {
    {
     case "nombre":
      if(REGEX_PATTERNS.nombre.test(e.target.value)) {
-      console.log("Cumple la expresión regular ");
-      document.getElementById("nombre").style.background="green"
-
+     document.getElementById("nombre").classList.remove("incorrecto");
      } else{
-       console.log("No cumple con la expresión regular")
-       document.getElementById("nombre").style.background="red"
+        document.getElementById("nombre").classList.add("incorrecto");
+       //console.log("No cumple con la expresión regular")
+       //document.getElementById("nombre").style.background="red"
       }
      break;
      case "apellido":
-     console.log("Este es el input apellido");
+      if(REGEX_PATTERNS.apellido.test(e.target.value)){
+        document.getElementById("apellido").classList.remove("incorrecto");
+      }
+      else{
+        document.getElementById("apellido").classList.add("incorrecto");
+      }
+     break;
+     case "documento":
+      if(REGEX_PATTERNS.documento.test(e.target.value)){
+        document.getElementById("documento").classList.remove("incorrecto");
+      }
+      else{
+        document.getElementById("documento").classList.add("incorrecto");
+      }
+     break;
+     case "telefono":
+      if(REGEX_PATTERNS.telefono.test(e.target.value)){
+        document.getElementById("telefono").classList.remove("incorrecto");
+      }
+      else{
+        document.getElementById("telefono").classList.add("incorrecto");
+      }
      break;
 
    }
@@ -66,9 +86,24 @@ inputs.forEach((input)=> {
 // la comparacion de la expresion regular :  expresion y luego el valor y retorna un true or false 
 // .test compara letra por letra para definir si cumple o no con la expresion regular 
 
+// metodo test me devuelve un true o un false 
 
 
+// COMPORTAMIENTO FUNCIONAL 
+let usuarios = []
+let btnRegistro = document.getElementById("btnRegistro")
+function registrarUsuario(){
+  let formulario = document.querySelector("form")
+  console.log(formulario);
+  //instancia, crear un objeto apartir de una clase
+  let data = new FormData(formulario)
+  let objeto = Object.fromEntries(data)  //de la data que estamos ingresando se crea un objeto 
+  usuarios.push(objeto);
+  console.log(usuarios);
 
+
+}
+btnRegistro.addEventListener("click", registrarUsuario)
 
 
 

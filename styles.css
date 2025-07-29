@@ -156,3 +156,7 @@
  .formulario__boton:hover {
      background-color: #1a252f;
  }
+
+ .incorrecto {
+    border: solid red 1px;
+ }
