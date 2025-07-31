@@ -2,4 +2,4 @@
 // por cada modelo debe existir un controlador, en la carpeta controllers se debe seguir los mismos pasos 
 
 //ARREGLOS
-let Usuarios = []
+ export let Usuarios = []

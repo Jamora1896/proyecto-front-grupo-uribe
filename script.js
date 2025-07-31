@@ -24,7 +24,7 @@ TYPE MODULE SIEMPRE LO DEBE TENER PARA LA EXPORTACION E IMPORTACION  */
 
 MVP 2: REGISTRAR USUARIO */
 
-import { REGEX_PATTERNS } from "./helpers/expresionesRegulares.js";  //importante agregar el .js
+/*import { REGEX_PATTERNS } from "./helpers/expresionesRegulares.js";  //importante agregar el .js
 let inputs = document.querySelectorAll("form input"); // selecionar todos los inputs del formulario
 // y almacenar por lo tanto se crea una variable para poder modificar mas adelante 
 inputs.forEach((input)=> {
@@ -72,7 +72,7 @@ inputs.forEach((input)=> {
 
   /*input.addEventListener("blur", () => {
    console.log("mas puntos"); 
-  })*/
+  })
 
 }) // iterar cada uno de los elementos del arreglo y le va agregar lo que yo quiera con funcion anonima que siempre 
 // recibe un parametro, normalmente se utiliza el singular del arreglo, o element, item, index.
@@ -86,11 +86,11 @@ inputs.forEach((input)=> {
 // la comparacion de la expresion regular :  expresion y luego el valor y retorna un true or false 
 // .test compara letra por letra para definir si cumple o no con la expresion regular 
 
-// metodo test me devuelve un true o un false 
+// metodo test me devuelve un true o un false */
 
 
 // COMPORTAMIENTO FUNCIONAL 
-let usuarios = []
+/*let usuarios = []
 let btnRegistro = document.getElementById("btnRegistro")
 function registrarUsuario(){
   let formulario = document.querySelector("form")
@@ -128,8 +128,15 @@ localStorage.setItem("usuarios", JSON.stringify(usuarios)); // recibe nombre de 
 
 
 }
-btnRegistro.addEventListener("click", registrarUsuario)
+btnRegistro.addEventListener("click", registrarUsuario)*/
 
+import { validarFormulario } from "./helpers/validarFormulario.js";
+import { registrarUsuario } from "./controllers/usuarioController.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  validarFormulario;
+  registrarUsuario;
+  });
 
 
 
